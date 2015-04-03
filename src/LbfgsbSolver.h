@@ -24,6 +24,7 @@
 #define LBFGSBSOLVER_H_
 #include "ISolver.h"
 #include <list>
+#include <vector>
 namespace pwie
 {
 

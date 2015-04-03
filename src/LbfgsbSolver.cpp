@@ -169,7 +169,7 @@ void LbfgsbSolver::GetGeneralizedCauchyPoint(Vector &x, Vector &g, Vector &x_cau
 
   }
 
-  dt_min = max(dt_min, 0);
+  dt_min = fmax(dt_min, 0);
   t_old += dt_min;
 
   Debug(SortedIndices[0] << " " << SortedIndices[1]);
@@ -197,13 +197,13 @@ double LbfgsbSolver::FindAlpha(Vector &x_cp, Vector &du, std::vector<int> &FreeV
   {
     if (du(i) > 0)
     {
-      alphastar = min(alphastar,
+      alphastar = fmin(alphastar,
                       (ub(FreeVariables[i]) - x_cp(FreeVariables[i]))
                       / du(i));
     }
     else
     {
-      alphastar = min(alphastar,
+      alphastar = fmin(alphastar,
                       (lb(FreeVariables[i]) - x_cp(FreeVariables[i]))
                       / du(i));
     }
